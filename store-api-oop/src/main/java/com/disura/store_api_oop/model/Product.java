@@ -1,11 +1,24 @@
 package com.disura.store_api_oop.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     // private = only this class can use these
     private String name;
     private double price;
     private int stockQuantity;
+
+    protected Product() {
+    }
 
     // constructor, runs when we make a new Product
     public Product(String name, double price, int stockQuantity) {
@@ -14,7 +27,12 @@ public class Product {
         this.stockQuantity = stockQuantity;
     }
 
-    // getter, just lets us read the name
+    // getter for ID
+    public Long getId() {
+        return id;
+    }
+
+    // getter for name
     public String getName() {
         return name;
     }
