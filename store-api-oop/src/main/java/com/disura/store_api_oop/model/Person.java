@@ -1,10 +1,16 @@
 package com.disura.store_api_oop.model;
 
+import jakarta.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public class Person {
 
     // protected = locked, only Person and its children can use these
     protected String name;
     protected String email;
+
+    protected Person() {
+    }
 
     // constructor, runs when we make a new person
     public Person(String name, String email) {
